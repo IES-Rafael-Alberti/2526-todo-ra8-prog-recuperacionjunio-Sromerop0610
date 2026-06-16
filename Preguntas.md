@@ -76,9 +76,31 @@ Respuesta a pregunta 12:
 
 Respuesta a pregunta 13:
 
+El flujo del programa es el siguiente: el usuario introduce por consola una ruta path, en la que se encuentra el archivo a trabajar. Se comprueba que esta ruta path sea correcta desde ```ArgumentParser.kt```. Una vez se obtiene la ruta, con ```InputFileReader.kt``` se lee el archivo otorgado por la ruta y se realizan comprobaciones para ver que los datos dados por el archivo sean correctos (en mi programa esto último no está implementado. Lee el archivo pero no maneja errores), una vez esto, se crea ```TripInput.kt```, guardando el lugar y los nombres de las fotos de Smart y las de reflex por separado, como dos listas de stings distintas.
+
+Posteriormente, pasamos los datos por el ```PhotoProcessor.kt```, donde se tratan los datos para:
+
+1- Obtener las orderKey (año, mes, día, hora, minutos y segundos formateados para que tengan tanto reflex como smart el mismo formato).
+2- Comprobar cuantos elementos fallan en cada uno de los tipos de imagen (no me ha dado tiempo a implementar esto)
+
+Una vez se han pasado los datos por ````PhotoProcessor.kt````, pasamos ya al ```ScriptWriter.kt```, donde escribimos el fichero de salida .sh
+
+Por último, se escribe por consola los datos finales sacados al procesar el archivo, donde se dicen el número de errores, procesados y archivos no errados.
+
+Todo el programa ha hecho uso de modelos (data class) para facilitar el trato de la información y poder instanciar objetos de forma correcta. Alguno de estos modelos se enlazan para obtener un tratado de la información más optimo.
+
+
 14. Indica qué alternativas ofrece Kotlin para leer y escribir ficheros. Compara opciones como `File`, `Path`, `readLines`, `bufferedReader`, `writeText` y `bufferedWriter`, y justifica cuál usarías en esta solución.
 
 Respuesta a pregunta 14:
+
+Para leer y escribir ficheros kotlin ofrece muchas opciones, siendo la principal el uso de ```java.nio.file.Files.readAllLines``` y ```java.nio.file.Path```, librerias que proporcionan métodos especificos de java que facilitan el tratado de archivos.
+
+Para leerlo, utilizo opciones como ```readAllLines()```, que me sirve para poder leer todas las lineas de un archivo en un programa, y para escribir otras opciones como Files.write para escribir en ficheros utilizando el ```buildlist``` con el método ```add```. 
+
+A nivel general, kotlin nos ofrece los métodos de File para trabajar directamente con un archivo, utilizando sus métodos como ```write```, ```move``` ... Que nos dota de una gran facilidad para el tratado de información en ficheros.
+
+Por otro lado, también encontramos los métodos de ```Path```, que nos permite trabajar directamente con rutas.
 
 ## UD9, RA9: Bases de datos relacionales
 
