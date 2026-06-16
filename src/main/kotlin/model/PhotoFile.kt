@@ -1,6 +1,6 @@
 package org.iesra.model
 
-data class PhotoFile(
-    var originalName: String,
-    var orderKey: String
-)
+abstract class PhotoFile(var originalName: String){
+    abstract var orderKey: String
+}
+
