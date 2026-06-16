@@ -15,7 +15,7 @@ class ScriptWriter {
 
         var lines = buildList {
             photoFile.forEach { image ->
-                add("mv ${image.originalName} ${image.newName}")
+                add("mv ${image.originalName} ${image.orderKey}")
             }
 
         }
