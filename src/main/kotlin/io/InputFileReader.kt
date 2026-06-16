@@ -13,7 +13,7 @@ class InputFileReader {
         }
 
         var destination = content[0].toString()
-        var namesSmarthphone = content[1].split(" ")
+        var namesSmartphone = content[1].split(" ")
         var namesReflex = content[2].split(" ")
 
         // TODO hacer validacion
@@ -25,7 +25,7 @@ class InputFileReader {
 
         return TripInput(
             destination,
-            namesSmarthphone,
+            namesSmartphone,
             namesReflex,
         )
     }
